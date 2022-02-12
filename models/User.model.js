@@ -5,13 +5,23 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      unique: true 
     },
     password: String,
+    biography: String,
+    favoritesPlaces: [ {
+      type: Schema.Types.ObjectId,
+      ref: 'Places'
+    }],
+    level: {
+      type: String,
+      enum: ['5','5+','6a','6a+','6b','6b+','6c', '6c+', '7a', '7a+', '7b', '7b+', '7c', '7c+', '8a', '8a+', '8b', '8b+', '8c', '8c+', '9a', '9a+', '9b', '9b+','9c']
+    },
+    climbType: String,
+    // comments:  --> escalable mas adelante
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
-    timestamps: true,
+        timestamps: true,
   }
 );
 
