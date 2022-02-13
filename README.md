@@ -4,17 +4,19 @@
 
 | GET | /auth/signup | renderiza formulario de registro | None |
 
-| POST | /auth/signup | renderiza formulario de registro | None |
+| POST | /auth/signup | envia formulario de registro | None |
 
-| GET | /auth/login | renderiza formulario de registro | None |
+| GET | /auth/login | renderiza formulario de ingreso | None |
 
-| POST | /auth/login | renderiza formulario de registro | None |
+| POST | /auth/login | envia formulario de ingreso | None |
 
-| POST | /auth/logout | renderiza formulario de registro | None |
+| POST | /auth/logout | cierra sesion del usuario | None (USUARIO con mismo Id  ADMIN) |
 
-| GET | /places/around | muestra los lugares que están cerca | None * |
+| POST | /users/:id/delete | permite eliminar un usuario | User(id) & ADMIN |
 
-| GET | /places/create | renderiza formulario de creación de lugar | None  |
+| GET | /places/around | muestra los lugares que están cerca | None * |       
+
+| GET | /places/create | renderiza formulario de creación de lugar | None  None * (EXPERT)  |
 
 | POST | /places/create | permite crear un lugar | None * (EXPERT) |
 
@@ -34,6 +36,14 @@
 
 | POST | /users/:id/update | permite modificar los detalles de un usuario | User(id) |
 
-| POST | /users/:id/delete | permite eliminar un usuario | User(id) & ADMIN |
+
+
+
+----------------------------------------------------------------------------------------------------
+| POST | 
+
+
+
+
 
 
