@@ -5,33 +5,32 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      unique: true 
+      unique: true
     },
     password: {
       type: String,
-      require: true,
-      unique: true
-      },
+      required: true,
+    },
     email: {
       type: String,
-      require: true
+      required: true
     },
     biography: String,
-    favoritesPlaces: [ {
+    favoritesPlaces: [{
       type: Schema.Types.ObjectId,
-      ref: 'Places'
+      ref: 'Place'
     }],
     picturesActivities: [String],
     image: String, // URL (cloudinary)
     level: {
       type: String,
-      enum: ['5','5+','6a','6a+','6b','6b+','6c', '6c+', '7a', '7a+', '7b', '7b+', '7c', '7c+', '8a', '8a+', '8b', '8b+', '8c', '8c+', '9a', '9a+', '9b', '9b+','9c']
+      enum: ['5', '5+', '6a', '6a+', '6b', '6b+', '6c', '6c+', '7a', '7a+', '7b', '7b+', '7c', '7c+', '8a', '8a+', '8b', '8b+', '8c', '8c+', '9a', '9a+', '9b', '9b+', '9c']
     },
     climbType: String,
-    // comments:  --> escalable mas adelante
+  
   },
   {
-        timestamps: true,
+    timestamps: true,
   }
 );
 
