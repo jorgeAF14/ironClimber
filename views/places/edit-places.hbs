@@ -1,0 +1,80 @@
+<h2>Editar el Lugar</h2>
+
+<form action="/places/{{_id}}/edit" method="POST">
+
+<input type="submit" value="Guardar Edición">
+
+<div>
+    <label>
+        Name :
+        <input type="text" name="name" value="{{name}}">
+    </label>
+</div>
+
+<div>
+    <label>
+        Descripción :
+        <input type="text" name="name" value="{{description}}">
+    </label>
+</div>
+
+<div>
+    <label>
+        Imagen :
+        <input type="text" name="image" value="{{image}}">
+    </label>
+</div>
+
+<div>
+    <label>
+        Latitud :
+        <input type="number" name="lat" value="{{location.coordinates.[0]}}">
+    </label>
+</div>
+
+<div>
+    <label>
+        Longitud :
+        <input type="number" name="lat" value="{{location.coordinates.[1]}}">
+    </label>
+</div>
+
+<div>
+    <label>
+        Nivel :
+        <input type="text" name="level" value="{{level}}">
+    </label>
+</div>
+
+<div>
+    <label>
+        Materiales :
+        <input type="text" name="material" value="{{material}}">
+    </label>
+</div>
+
+<div>
+    <label>
+        Acceso :
+        <input type="text" name="access" value="{{access}}"> 
+    </label>
+</div>
+
+<div>
+    <label>
+        Parking :
+        <input type="text" name="parking" value="{{parking}}">  
+    </label>
+</div>
+
+<div>
+    <label>
+        Tipo :
+        <input type="text" name="type" value="{{type}}">
+    </label>
+</div>
+
+</form>
+
+<br><br>
+<a href="/places/{{_id}}">Regresar</a>
