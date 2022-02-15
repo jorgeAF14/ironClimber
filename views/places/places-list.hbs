@@ -2,52 +2,18 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <ul>
-                {{#each placeList}}
-                <li>{{name}}</li>
-                <li>{{type}}</li>
-                <li>{{location.coordinates.[0]}}</li>
-                <li>{{location.coordinates.[1]}}</li>
-
-                <a href="/places/{{_id}}">Detalles del Lugar</a>
-                <br><br>
-
-                <form action="/places/{{_id}}/delete" method="POST">
-                    <label for="delete-btn">
-                        <input id="delete-btn" type="submit" value="<h2>Places List</h2>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <ul>
-                {{#each placeList}}
-                <li>{{name}}</li>
-                <li>{{type}}</li>
-                <li>{{location.coordinates.[0]}}</li>
-                <li>{{location.coordinates.[1]}}</li>
-            
-                <a href="/places/{{_id}}">Place Detail</a>
-                <br><br>
-
-                <form action="/places/{{_id}}/delete" method="POST">
-                    <label for="delete-btn">
-                        <input id="delete-btn" type="submit" value="Delete Place" >
-                    </label>
-                </form>
-                
-                {{/each}}
-            </ul>
+        <div class="col-md-3">
         </div>
+        <div-col-md-9>
+            <figure id="placesListMap"></figure>
+        </div-col-md-9>
     </div>
 </div>
 
-">
-                    </label>
-                </form>
-
-                {{/each}}
-            </ul>
-        </div>
-    </div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/map-styles.js"></script>
+<script src="/js/places-list-map.js"></script>
+{{!--
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=_______PEGA_AQUI_TU_API_KEY_____&callback=initMap&libraries=places&v=weekly"></script>
+--}}

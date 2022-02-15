@@ -10,3 +10,11 @@ a {
 h1 {
   color: 15px;
 }
+
+#createPlacesMap {
+  height: 500px;
+}
+
+#placesListMap {
+  height: 500px;
+}
