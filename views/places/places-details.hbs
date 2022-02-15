@@ -1,6 +1,6 @@
 <h2>Detalles del Lugar</h2>
 
-<form action="/places/{{_id}}/edit" method="POST">
+<form action="/places/{{_id}}/edit" method="GET">
     <label for="edit-btn">
         <input id="edit-btn" type="submit" value="Editar Lugar">
     </label>
@@ -17,70 +17,85 @@
 <div>
     <label>
         Name :
-        <span>{{name}}</span>
+        <span>{{place.name}}</span>
     </label>
 </div>
 
 <div>
     <label>
         Descripción :
-        <span>{{description}}</span>
+        <span>{{place.description}}</span>
     </label>
 </div>
 
 <div>
     <label>
         Imagen :
-        <span>{{image}}</span>
+        <span>{{place.image}}</span>
     </label>
 </div>
 
 <div>
     <label>
         Latitud :
-        <span>{{location.coordinates.[0]}}</span>
+        <span>{{place.location.coordinates.[0]}}</span>
     </label>
 </div>
 
 <div>
     <label>
         Longitud :
-        <span>{{location.coordinates.[1]}}</span>
+        <span>{{place.location.coordinates.[1]}}</span>
     </label>
 </div>
 
 <div>
     <label>
         Nivel :
-        <span>{{level}}</span>
+        <span>{{place.level}}</span>
     </label>
 </div>
 
 <div>
     <label>
         Materiales :
-        <span>{{material}}</span>
+        <span>{{place.material}}</span>
     </label>
 </div>
 
 <div>
     <label>
         Acceso :
-        <span>{{access}}</span>
+        <span>{{place.access}}</span>
     </label>
 </div>
 
 <div>
     <label>
         Parking :
-        <span>{{parking}}</span>
+        <span>{{place.parking}}</span>
     </label>
 </div>
 
 <div>
     <label>
         Tipo :
-        <span>{{type}}</span>
+        <span>{{place.type}}</span>
     </label>
 </div>
+<form action="/reviews/new-comment/{{place.id}}" method="POST">
+    <div>
+        <label>
+            comentarios :
+            <input type="text" name="comment">
+        </label>
+        <label for="new-comment">
+            <input id="new-comment" type="submit" value="Comentar">
+        </label>
+    </div>
+</form>
 
+
+{{#each reviews}}
+<h6>{{comment}}</h6>
+{{/each}}

@@ -11,6 +11,7 @@ const placeSchema = new Schema(
             },
             coordinates: [Number]
         },
+        // address: String,
         image: [String],
         level: {
             type: String,

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const Place = require('../models/Place.model')
+const Review = require('../models/Review.model');
 
 // Create New Place form (render)
 router.get('/create', (req, res, next) => {
@@ -23,7 +24,8 @@ router.post('/create', (req, res, next) => {
 
     Place
         .create({ name, location, image: [], level: '5', material: '', access: '', parking: false, type: 'Rocodromo' })
-        .then(() => res.redirect('/places/'))
+
+        .then(place => res.redirect(`/places/${place.id}/edit`))
         .catch(err => {
             res.render('../views/places/new-places')
             console.error(err)
@@ -45,12 +47,38 @@ router.get('/', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
 
     const { id } = req.params
+    const placePromise = Place.findById(id)
+    const reviewsPromise = Review.find({ place: id })
 
-    Place
-        .findById(id)
-        .then(placeDetail => res.render('../views/places/places-details', placeDetail))
-        .catch(err => console.log(err))
+    Promise.all([placePromise, reviewsPromise])
+        .then(data => {
+            [place, reviews] = data
+
+            res.render('places/places-details', { place, reviews })
+        })
+
+    // let data = {}
+
+    // // Place
+    // //     .findById(id)
+    // //     .then(placeDetail => res.render('../views/places/places-details', placeDetail))
+    // //     .catch(err => console.log(err))
+    //    Place
+    //        .findById(id)
+    //        .then(placeDetail =>{
+    //            data.placeDetail = placeDetail
+    //            return Review.find({ place: id })
+    //        }) 
+    //        .then(allReviews => { 
+    //            data.allReviews= {allReviews} //puede ser un problema
+    //            res.render('../views/places/places-details', data )
+    //         })
+    //        .catch(err => console.log(err))
+    // Review
+    //     .find(place:id)    
 })
+
+
 
 
 // Place for edit (render)

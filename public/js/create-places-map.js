@@ -1,5 +1,7 @@
 let map
 
+let singleLocation
+
 function initMap() {
     drawMap()
     //getPlaces()
@@ -14,7 +16,7 @@ function drawMap() {
         {
             zoom: 11,
             center: latLng,
-            //styles: mapStyles.yellowHumanMade
+            styles: mapStyles.yellowParks
         }
     )
 
@@ -28,7 +30,9 @@ function drawMap() {
     });
 
     map.addListener("click", (mapsMouseEvent) => {
-        console.log('mapsMouseEvent.latLng : ', mapsMouseEvent.latLng) 
+        const placeLatInputEl = document.getElementById('place-lat-input');
+        const placeLngInputEl = document.getElementById('place-lng-input');
+        console.log('mapsMouseEvent.latLng : ', mapsMouseEvent.latLng)
         // Close the current InfoWindow.
         infoWindow.close();
         // Create a new InfoWindow.
@@ -39,6 +43,8 @@ function drawMap() {
             JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
         );
         infoWindow.open(map);
+        placeLatInputEl.value = mapsMouseEvent.latLng.lat()
+        placeLngInputEl.value = mapsMouseEvent.latLng.lng()
     });
 
     //This is for the Search box on top of the map : COPY /PASTE
@@ -67,9 +73,51 @@ function drawMap() {
         // For each place, get the icon, name and location.
         const bounds = new LatLngBounds();
 
-        placesResult.forEach((place) => {
-            if (!place.geometry || !place.geometry.location) {
-                console.log("Returned place contains no geometry");
+        console.log('NÚMERO DE ROCOS:', placesResult.length)
+
+        // const rocodromos = []
+
+        
+        // console.log('PLACE ==>', place)
+        
+        // rocodromos.push({
+            //     name: place.name,
+            //     location: {
+                //         type: 'Point',
+                //         coordinates: [lat: place., lng:]
+                //     },
+                //     address: place.formatted_address,
+                // })
+                
+                
+                // name: String,
+                //     description: String,
+            //         location: {
+                //     type: {
+                    //         type: String
+                    //     },
+                    //     coordinates: [Number]
+            // },
+            // address: String,
+            //     image: [String],
+            //         level: {
+                //     type: String,
+                // enum: ['5', '5+', '6a', '6a+', '6b', '6b+', '6c', '6c+', '7a', '7a+', '7b', '7b+', '7c', '7c+', '8a', '8a+', '8b', '8b+', '8c', '8c+', '9a', '9a+', '9b', '9b+', '9c']
+                // },
+                // material: String,
+                //     access: String,
+                //         parking: Boolean,
+                //             type: {
+                    //     type: String,
+                    // enum: ['Rocodromo', 'Clasica', 'Deportiva']
+                    // },  
+                    
+             placesResult.forEach((place) => {
+                    
+                    
+                    
+                    if (!place.geometry || !place.geometry.location) {
+                        console.log("Returned place contains no geometry");
                 return;
             }
 
