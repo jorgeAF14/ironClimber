@@ -3,8 +3,9 @@ const User = require('../models/User.model')
 const Place = require('../models/Place.model')
 const Review = require('../models/Review.model');
 const { redirect } = require('express/lib/response');
+const { isLoggedIn } = require('../middlewares')
 
-router.post('/new-comment/:id', (req, res, next)=>{
+router.post('/new-comment/:id', isLoggedIn, (req, res, next)=>{
       const {id} = req.params
       const  owner  = req.session.currentUser.id
       const {comment} = req.body

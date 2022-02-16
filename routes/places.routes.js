@@ -3,8 +3,11 @@ const router = require('express').Router();
 const Place = require('../models/Place.model')
 const Review = require('../models/Review.model');
 
+
+const { isLoggedIn, isExpert}=require('../middlewares')
+
 // Create New Place form (render)
-router.get('/create', (req, res, next) => {
+router.get('/create', isLoggedIn, isExpert, (req, res, next) => {
 
     Place
         .find()
@@ -13,7 +16,7 @@ router.get('/create', (req, res, next) => {
 })
 
 // Create New Place form (handler)
-router.post('/create', (req, res, next) => {
+router.post('/create', isExpert,(req, res, next) => {
 
     const { name, lat, lng } = req.body
 
@@ -34,7 +37,7 @@ router.post('/create', (req, res, next) => {
 
 
 // Places List
-router.get('/', (req, res, next) => {
+router.get('/', isLoggedIn,(req, res, next) => {
     Place
         .find()
         .select('name')
@@ -44,7 +47,7 @@ router.get('/', (req, res, next) => {
 
 
 // Places Detail
-router.get('/:id', (req, res, next) => {
+router.get('/:id',isLoggedIn, (req, res, next) => {
 
     const { id } = req.params
     const placePromise = Place.findById(id)
@@ -53,7 +56,7 @@ router.get('/:id', (req, res, next) => {
     Promise.all([placePromise, reviewsPromise])
         .then(data => {
             [place, reviews] = data
-
+            console.log(place)
             res.render('places/place-details', { place, reviews })
         })
 
@@ -82,7 +85,7 @@ router.get('/:id', (req, res, next) => {
 
 
 // Place for edit (render)
-router.get('/:id/edit', (req, res, next) => {
+router.get('/:id/edit', isLoggedIn, isExpert,(req, res, next) => {
 
     const { id } = req.params
 
@@ -94,7 +97,7 @@ router.get('/:id/edit', (req, res, next) => {
 
 
 // Route for edit (handler)
-router.post('/:id/edit', (req, res, next) => {
+router.post('/:id/edit', isLoggedIn, isExpert, (req, res, next) => {
 
     const { id } = req.params
     const { name, lat, lng, image, level, material, access, parking, type } = req.body
@@ -112,7 +115,7 @@ router.post('/:id/edit', (req, res, next) => {
 
 
 //delete Places
-router.post('/:id/delete', (req, res, next) => {
+router.post('/:id/delete', isLoggedIn, isExpert, (req, res, next) => {
 
     const { id } = req.params
 

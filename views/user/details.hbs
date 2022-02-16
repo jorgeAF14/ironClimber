@@ -10,4 +10,9 @@
     <button>eliminar</button>
 </form>
 {{/if}}
+{{#if ./isAdmin}}
+<form action="/user/{{user.id}}/edit" method="GET">
+    <button>editar</button>
+</form>
+{{/if}}
 

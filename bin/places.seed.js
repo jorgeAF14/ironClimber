@@ -63,13 +63,13 @@ const places = [
         type: "Rocodromo"
     },
     {
-        name: "BOULDER ZONE MADRID / RETIRO - Escalada Madrid",
+        name: "BOULDER ZONE MADRI / RETIRO - Escalada Madrid",
         description: "",
         location: {
             type: "Point",
             coordinates: ["40.434493", "-3.668765"]
         },
-        images: ["https://lh5.googleusercontent.com/p/AF1QipNIJNbipXzH5KyGxp4o7gUWKKdkGF1Eur6K97q1=w312-h192-p-k-no"],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipNIJNbipXzH5KyGxp4o7gUWKKdkGF1Eur6K97q1=w312-h192-p-k-no","https://lh5.googleusercontent.com/p/AF1QipMKUar8S5l7E5MBXVV63i838Ca0NUstzAjoyiaC=w312-h192-p-k-no"],
         level: "8c",
         material: "",
         access: "",
