@@ -1,32 +1,37 @@
 <h2>Detalles del Lugar</h2>
 
+{{#each place.images}}
+<p>{{this}}</p>
+{{/each}}
+
 <div class="container place-details">
     <div class="row">
         <div class="col-md-4">
             <figure id="placeDetailsMap"></figure>
-            <form action="/places/{{_id}}/edit" method="GET">
+            <form action="/places/{{place.id}}/edit" method="GET">
                 <label for="edit-btn">
                     <input id="edit-btn" type="submit" value="Editar Lugar">
                 </label>
             </form>
             <br>
-            
-            <form action="/places/{{_id}}/delete" method="POST">
+
+            <form action="/places/{{place.id}}/delete" method="POST">
                 <label for="delete-btn">
                     <input id="delete-btn" type="submit" value="Borrar Lugar">
                 </label>
             </form>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="place-name-input-label">Nombre</span>
-                <input id="place-name-input" type="text" name="name" class="form-control"
-                    aria-label="Placename" aria-describedby="place-name-input-label" value="{{place.name}}" disabled>
+                <input id="place-name-input" type="text" name="name" class="form-control" aria-label="Placename"
+                    aria-describedby="place-name-input-label" value="{{place.name}}" disabled>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="place-description-input-label">Descripción</span>
                 <input id="place-description-input" type="text" name="description" class="form-control"
-                    aria-label="Placedescription" aria-describedby="place-description-input-label" value="{{place.description}}" disabled>
+                    aria-label="Placedescription" aria-describedby="place-description-input-label"
+                    value="{{place.description}}" disabled>
             </div>
-            
+
             {{!-- <div>
                 <label>
                     Imagen :
@@ -36,24 +41,24 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="place-lat-input-label">Latitud</span>
-                <input id="place-lat-input" name="lat" type="text" class="form-control"
-                    aria-label="Placelatitude" aria-describedby="place-lat-input-label" value="{{place.location.coordinates.[0]}}" disabled>
+                <input id="place-lat-input" name="lat" type="text" class="form-control" aria-label="Placelatitude"
+                    aria-describedby="place-lat-input-label" value="{{place.location.coordinates.[0]}}" disabled>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="place-lng-input-label">Longitud</span>
-                <input id="place-lng-input" type="text" name="lng" class="form-control"
-                    aria-label="Placelongitude" aria-describedby="place-lng-input-label" value="{{place.location.coordinates.[1]}}" disabled>
+                <input id="place-lng-input" type="text" name="lng" class="form-control" aria-label="Placelongitude"
+                    aria-describedby="place-lng-input-label" value="{{place.location.coordinates.[1]}}" disabled>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="place-level-input-label">Level</span>
-                <input id="place-level-input" type="text" name="level" class="form-control"
-                    aria-label="Placelevel" aria-describedby="place-level-input-label" value="{{place.level}}"
-                    disabled>
+                <input id="place-level-input" type="text" name="level" class="form-control" aria-label="Placelevel"
+                    aria-describedby="place-level-input-label" value="{{place.level}}" disabled>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="place-material-input-label">Material</span>
-                <input id="place-material-input" type="text" name="material" class="form-control" aria-label="Placematerial"
-                    aria-describedby="place-material-input-label" value="{{place.material}}" disabled>
+                <input id="place-material-input" type="text" name="material" class="form-control"
+                    aria-label="Placematerial" aria-describedby="place-material-input-label" value="{{place.material}}"
+                    disabled>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="place-access-input-label">Access</span>
@@ -62,8 +67,9 @@
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="place-parking-input-label">Parking</span>
-                <input id="place-parking-input" type="text" name="parking" class="form-control" aria-label="Placeparking"
-                    aria-describedby="place-parking-input-label" value="{{place.parking}}" disabled>
+                <input id="place-parking-input" type="text" name="parking" class="form-control"
+                    aria-label="Placeparking" aria-describedby="place-parking-input-label" value="{{place.parking}}"
+                    disabled>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="place-type-input-label">Type</span>
@@ -86,18 +92,18 @@
             {{!-- Carrousel bootstrap --}}
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                         aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    {{#each place.images as | imageSrc |}}
-                        <div class="carousel-item active">
-                            <img src="{{imageSrc}}" class="d-block w-100" alt="...">
-                        </div>
+                    {{#each place.images}}
+                    <div class="carousel-item active">
+                        <img src="{{this}}" class="d-block w-100" alt="...">
+                    </div>
                     {{/each}}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -118,6 +124,7 @@
 
 {{#each reviews}}
 <h6>{{comment}}</h6>
+
 {{/each}}
 
 <script src="/js/map-styles.js"></script>
