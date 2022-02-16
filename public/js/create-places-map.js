@@ -16,7 +16,7 @@ function drawMap() {
         {
             zoom: 11,
             center: latLng,
-            styles: mapStyles.yellowParks
+            // styles: mapStyles.yellowParks
         }
     )
 

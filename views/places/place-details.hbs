@@ -4,7 +4,7 @@
 <p>{{this}}</p>
 {{/each}}
 
-<div class="container place-details">
+<div class="container-fluid place-details">
     <div class="row">
         <div class="col-md-4">
             <figure id="placeDetailsMap"></figure>
@@ -123,11 +123,13 @@
 
 
 {{#each reviews}}
+<h4>{{ownername}}</h4>
 <h6>{{comment}}</h6>
+<hr>
 
 {{/each}}
 
 <script src="/js/map-styles.js"></script>
 <script src="/js/place-details-map.js"></script>
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=API------KEY&callback=initMap&libraries=places&v=weekly"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=API-----KEY&callback=initMap&libraries=places&v=weekly"></script>

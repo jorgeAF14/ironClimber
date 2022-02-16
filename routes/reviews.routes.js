@@ -5,19 +5,19 @@ const Review = require('../models/Review.model');
 const { redirect } = require('express/lib/response');
 const { isLoggedIn } = require('../middlewares')
 
-router.post('/new-comment/:id', isLoggedIn, (req, res, next)=>{
-      const {id} = req.params
-      const  owner  = req.session.currentUser.id
-      const {comment} = req.body
-      const place = id
-       console.log(place, owner, comment)
-      Review
-         .create({place,owner,comment})
-         .then(() => res.redirect(`/places/${id}`))
-         .catch(error => next(error))
-    
+router.post('/new-comment/:id', isLoggedIn, (req, res, next) => {
+      const { id: place } = req.params
+      const { username: ownername, owner: id } = req.session.currentUser
+      const { comment } = req.body
 
-    
+      console.log(place, owner, comment, ownername)
+      Review
+            .create({ place, owner, comment, ownername })
+            .then(() => res.redirect(`/places/${id}`))
+            .catch(error => next(error))
+
+
+
 })
 
 // 620afbb493437a3a180714c5
