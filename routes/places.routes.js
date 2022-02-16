@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const fileUploader = require('../config/cloudinary.config')
 
 const Place = require('../models/Place.model')
 const Review = require('../models/Review.model');
@@ -16,14 +17,15 @@ router.get('/create', isLoggedIn, isExpert, (req, res, next) => {
 })
 
 // Create New Place form (handler)
-router.post('/create', isExpert,(req, res, next) => {
+router.post('/create', isExpert, fileUploader.single('imageFile'), (req, res, next) => {
+
     const { name, lat, lng } = req.body
     const location = {
         type: 'Point',
         coordinates: [lat, lng]
     }
     Place
-        .create({ name, location, image: [], level: '5', material: '', access: '', parking: false, type: 'Rocodromo' })
+        .create({ name, location, images: [req.file.path], level: '5', material: '', access: '', parking: false, type: 'Rocodromo' })
         .then(place => res.redirect(`/places/${place.id}/edit`))
         .catch(err => {
             res.render('places/new-places')

@@ -17,8 +17,7 @@ router.get('/:id/details', isLoggedIn, (req, res, next) => {
     User
         .findById(id)
         .then(user => res.render('user/details',{user,isAdmin: isAdmin(req.session.currentUser)}))
-        .catch(error => next(error))
-    
+        .catch(error => next(error))    
 })
 
 router.get('/:id/edit',(req, res, next) => {
