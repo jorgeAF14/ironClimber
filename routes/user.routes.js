@@ -1,8 +1,5 @@
 const router = require('express').Router();
-const { redirect } = require('express/lib/response');
-
 const User = require('../models/User.model')
-
 const {isAdmin}=require('../utils')
 const { isLoggedIn, isAdminM} = require('../middlewares')
 

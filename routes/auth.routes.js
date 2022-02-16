@@ -4,10 +4,10 @@ const { findOne } = require('../models/User.model');
 const User = require('../models/User.model')
 const saltRounds = 10
 
-/* GET home page */
+
 router.get('/signup', (req, res, next) => res.render('auth/sign-up-form'))
 router.post('/signup', (req, res, next) => {
-    //debe incluirse un middleware para logearse
+    
     const { password } = req.body
     bcrypt
         .genSalt(saltRounds)
