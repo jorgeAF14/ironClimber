@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <form action="/places/create" method="POST">
+            <form action="/places/create" method="POST" enctype="multipart/form-data">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="place-name-input-label">Nombre</span>
                     <input id="place-name-input" type="text" name="name" class="form-control" placeholder="Place name"
@@ -21,6 +21,12 @@
                     <input id="place-lng-input" type="text" name="lng" class="form-control"
                         placeholder="Place longitude" aria-label="Placelongitude"
                         aria-describedby="place-lng-input-label">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-image-input-label">Image</span>
+                    <input id="place-image-input" type="file" name="imageFile" class="form-control" placeholder="Place image"
+                        aria-label="Placeimage" aria-describedby="place-image-input-label">
                 </div>
 
                 <div>
@@ -48,6 +54,5 @@
 <script src="/js/map-styles.js"></script>
 <script src="/js/create-places-map.js"></script>
 
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi54rsIEVOLplWabQRqUsVZb3_lzCQ33w&callback=initMap&libraries=places&v=weekly"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap&libraries=places&v=weekly"></script>
 

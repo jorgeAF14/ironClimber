@@ -1,10 +1,11 @@
 const router = require('express').Router();
+const fileUploader = require('../config/cloudinary.config')
 
 const Place = require('../models/Place.model')
 const Review = require('../models/Review.model');
 
-
-const { isLoggedIn, isExpert}=require('../middlewares')
+const { isLoggedIn, isExpert} = require('../middlewares');
+const User = require('../models/User.model');
 
 // Create New Place form (render)
 router.get('/create', isLoggedIn, isExpert, (req, res, next) => {
@@ -16,7 +17,7 @@ router.get('/create', isLoggedIn, isExpert, (req, res, next) => {
 })
 
 // Create New Place form (handler)
-router.post('/create', isExpert,(req, res, next) => {
+router.post('/create', isExpert, fileUploader.single('imageFile'), (req, res, next) => {
 
     const { name, lat, lng } = req.body
 
@@ -26,8 +27,7 @@ router.post('/create', isExpert,(req, res, next) => {
     }
 
     Place
-        .create({ name, location, image: [], level: '5', material: '', access: '', parking: false, type: 'Rocodromo' })
-
+        .create({ name, location, images: [req.file.path], level: '5', material: '', access: '', parking: false, type: 'Rocodromo' })
         .then(place => res.redirect(`/places/${place.id}/edit`))
         .catch(err => {
             res.render('places/new-places')
@@ -52,12 +52,13 @@ router.get('/:id',isLoggedIn, (req, res, next) => {
     const { id } = req.params
     const placePromise = Place.findById(id)
     const reviewsPromise = Review.find({ place: id })
+    //nueva promesa
+    // const userPromise = User.findById(req.session.currentUser)
 
     Promise.all([placePromise, reviewsPromise])
         .then(data => {
-            [place, reviews] = data
-            console.log(place)
-            res.render('places/place-details', { place, reviews })
+            [place, reviews] = data         
+             res.render('places/place-details', { place, reviews })
         })
 
     // let data = {}
@@ -120,7 +121,7 @@ router.post('/:id/delete', isLoggedIn, isExpert, (req, res, next) => {
     const { id } = req.params
 
     Place
-        .findByIdAndRemove(id)
+        .findByIdAndDelete(id)
         .then(() => res.redirect('/places'))
         .catch(err => console.log(err))
 })
