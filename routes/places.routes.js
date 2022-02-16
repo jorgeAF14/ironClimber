@@ -8,7 +8,7 @@ router.get('/create', (req, res, next) => {
 
     Place
         .find()
-        .then(places => res.render('../views/places/new-places', { places }))
+        .then(places => res.render('places/new-places', { places }))
         .catch(err => console.error(err))
 })
 
@@ -27,7 +27,7 @@ router.post('/create', (req, res, next) => {
 
         .then(place => res.redirect(`/places/${place.id}/edit`))
         .catch(err => {
-            res.render('../views/places/new-places')
+            res.render('places/new-places')
             console.error(err)
         })
 })
@@ -38,7 +38,7 @@ router.get('/', (req, res, next) => {
     Place
         .find()
         .select('name')
-        .then(placesList => res.render('../views/places/places-list', { placesList }))
+        .then(placesList => res.render('places/places-list', { placesList }))
         .catch(err => console.log(err))
 })
 
@@ -54,7 +54,7 @@ router.get('/:id', (req, res, next) => {
         .then(data => {
             [place, reviews] = data
 
-            res.render('places/places-details', { place, reviews })
+            res.render('places/place-details', { place, reviews })
         })
 
     // let data = {}
@@ -88,7 +88,7 @@ router.get('/:id/edit', (req, res, next) => {
 
     Place
         .findById(id)
-        .then(placeToEdit => res.render('../views/places/edit-places', placeToEdit))
+        .then(placeToEdit => res.render('places/edit-places', placeToEdit))
         .catch(err => console.log(err))
 })
 
