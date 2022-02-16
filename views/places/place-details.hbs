@@ -94,11 +94,17 @@
                         aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    {{#each place.images as | imageSrc |}}
+
+                    <div class="carousel-item active">
+                        {{#each place.images as | imageSrc |}}
                         <div class="carousel-item active">
                             <img src="{{imageSrc}}" class="d-block w-100" alt="...">
                         </div>
-                    {{/each}}
+                        {{/each}}
+                    </div>
+
+
+                    
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                     data-bs-slide="prev">
@@ -123,4 +129,4 @@
 <script src="/js/map-styles.js"></script>
 <script src="/js/place-details-map.js"></script>
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=API________KEY&callback=initMap&libraries=places&v=weekly"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi54rsIEVOLplWabQRqUsVZb3_lzCQ33w&callback=initMap&libraries=places&v=weekly"></script>
