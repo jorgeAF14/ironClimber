@@ -113,8 +113,7 @@ function drawMap() {
                     // },  
                     
              placesResult.forEach((place) => {
-                    
-                    
+            
                     
                     if (!place.geometry || !place.geometry.location) {
                         console.log("Returned place contains no geometry");

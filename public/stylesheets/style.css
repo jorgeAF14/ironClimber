@@ -22,3 +22,11 @@ h1 {
 #placesListMap {
   height: 500px;
 }
+
+#placeDetailsMap{
+  height: 300px;
+}
+
+.place-details input{
+  background-color: white !important;
+}

@@ -27,7 +27,7 @@ const places = [
             type: "Point",
             coordinates: ["40.3913241", "-3.6696253"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipM5_T3KkVduDRBjvVCaapmZuRL2bQlrE_Q_IXhp=w312-h192-p-k-no"],
         level: "5",
         material: "",
         access: "",
@@ -41,7 +41,7 @@ const places = [
             type: "Point",
             coordinates: ["40.35693930000001", "-3.6921926"]
         },
-        image: [],
+        images: ["https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=OWAmXspOXcl8HGDpVgvzcA&cb_client=search.gws-prod.gps&yaw=183.39185&pitch=0&thumbfov=100&w=312&h=192"],
         level: "6a",
         material: "",
         access: "",
@@ -55,7 +55,7 @@ const places = [
             type: "Point",
             coordinates: ["40.4016191", "-3.6975305"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipMKUar8S5l7E5MBXVV63i838Ca0NUstzAjoyiaC=w312-h192-p-k-no"],
         level: "7a",
         material: "",
         access: "",
@@ -69,7 +69,7 @@ const places = [
             type: "Point",
             coordinates: ["40.434493", "-3.668765"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipNIJNbipXzH5KyGxp4o7gUWKKdkGF1Eur6K97q1=w312-h192-p-k-no"],
         level: "8c",
         material: "",
         access: "",
@@ -83,7 +83,7 @@ const places = [
             type: "Point",
             coordinates: ["40.399208", "-3.7188064"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipNAi_yADlOqeMqlLpocWtb80M8TGJHGp43Jllqp=w312-h192-p-k-no"],
         level: "7b",
         material: "",
         access: "",
@@ -97,7 +97,7 @@ const places = [
             type: "Point",
             coordinates: ["40.3641161", "-3.7542472"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipPvYJld-rKjSw2qsMRhx_f6ZSnNa6GqH6oxo_BB=w312-h192-p-k-no"],
         level: "6a",
         material: "",
         access: "",
@@ -111,7 +111,7 @@ const places = [
             type: "Point",
             coordinates: ["40.4391927", "-3.7274939"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipPPb5VBFjBZhnlF94ocQWPA7c5lvyjXg2KhSyfC=w312-h192-p-k-no"],
         level: "5",
         material: "",
         access: "",
@@ -125,7 +125,7 @@ const places = [
             type: "Point",
             coordinates: ["40.4010852", "-3.70672"]
         },
-        image: [],
+        images: ["https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=17a0zcRoSorlODTUX465Cw&cb_client=search.gws-prod.gps&yaw=251.53117&pitch=0&thumbfov=100&w=312&h=192"],
         level: "7b+",
         material: "",
         access: "",
@@ -139,7 +139,7 @@ const places = [
             type: "Point",
             coordinates: ["40.4084733", "-3.7034249"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipNcKtDC4v2JhtuPyOP4rukCyiDsfG5VjrkWVG8n=w312-h192-p-k-no"],
         level: "6a+",
         material: "",
         access: "",
@@ -153,7 +153,7 @@ const places = [
             type: "Point",
             coordinates: ["40.4189431", "-3.6648668"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipM6B6QkgUNs7IqdULrbz-vr1ax9Eq9Kw31xtyed=w312-h192-p-k-no"],
         level: "6b",
         material: "",
         access: "",
@@ -167,7 +167,7 @@ const places = [
             type: "Point",
             coordinates: ["40.4318591", "-3.654194099999999"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipPmJzOJlwmZNgg2C-_Hmgzf6C01-7xUQBRLP0Nn=w312-h192-p-k-no"],
         level: "9a",
         material: "",
         access: "",
@@ -181,7 +181,7 @@ const places = [
             type: "Point",
             coordinates: ["40.4377578", "-3.6201507"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipNunnEkpszizJd6UEerGHdzacrNB_fJvbg-w7bN=w312-h192-p-k-no"],
         level: "8c",
         material: "",
         access: "",
@@ -195,7 +195,7 @@ const places = [
             type: "Point",
             coordinates: ["40.4653448", "-3.6959248"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipOXGKoCwFga-E0auJsH6L7ZLMhkmklUT2VfiYF8=w312-h192-p-k-no"],
         level: "9b",
         material: "",
         access: "",
@@ -209,7 +209,7 @@ const places = [
             type: "Point",
             coordinates: ["40.4359793", "-3.6998316"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipM7UJ_wsSaEcGTr1GhjpnvcH4edSQlpd-Dut6vY=w312-h192-p-k-no"],
         level: "8b+",
         material: "",
         access: "",
@@ -223,7 +223,7 @@ const places = [
             type: "Point",
             coordinates: ["40.3937368", "-3.6869512"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipOiJBwpEvxetfZuElHLZ-ZRUeoiqRClL6MN5M4a=w312-h192-p-k-no"],
         level: "9c",
         material: "",
         access: "",
@@ -237,7 +237,7 @@ const places = [
             type: "Point",
             coordinates: ["40.36474399999999", "-3.6229449"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipNCZt0H3_m-pf9J_DfAtM4-EtylfXE6wC4OhEP3=w312-h192-p-k-no"],
         level: "7c+",
         material: "",
         access: "",
@@ -251,7 +251,7 @@ const places = [
             type: "Point",
             coordinates: ["40.3936843", "-3.687612999999999"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipNBU6jKoNE-BlVtNRBuUpcmMsP7QL7EUSJBhyno=w312-h192-p-k-no"],
         level: "8b",
         material: "",
         access: "",
@@ -265,7 +265,7 @@ const places = [
             type: "Point",
             coordinates: ["40.38229949999999", "-3.6939634"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipPx6VBBtaUaaIGRS_mop994mN8_xuJdovgvfTvD=w312-h192-p-k-no"],
         level: "5+",
         material: "",
         access: "",
@@ -279,7 +279,7 @@ const places = [
             type: "Point",
             coordinates: ["40.3755332", "-3.7279892"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipMF-ksjjnoeM5_F0qcCjnkTfhN7nNhVI0QSsWb7=w312-h192-p-k-no"],
         level: "6a+",
         material: "",
         access: "",
@@ -293,7 +293,7 @@ const places = [
             type: "Point",
             coordinates: ["40.3468025", "-3.8010128"]
         },
-        image: [],
+        images: ["https://lh5.googleusercontent.com/p/AF1QipOJ0B8hi46bV0KuNxRF8NB9OgHm_SVInoNn5zqR=w312-h192-p-k-no"],
         level: "9c",
         material: "",
         access: "",
