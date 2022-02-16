@@ -32,7 +32,6 @@ const userSchema = new Schema(
       type:String,
       enum:['climber','expert','admin']
     }
-  
   },
   {
     timestamps: true,

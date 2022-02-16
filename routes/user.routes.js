@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { redirect } = require('express/lib/response');
-
 const User = require('../models/User.model')
-
 const {isAdmin}=require('../utils')
 
 router.get('/search', (req, res, next) => res.render('user/search-user'))
@@ -19,9 +17,12 @@ router.get('/:id/details', (req, res, next) => {
     User
         .findById(id)
         .then(user => res.render('user/details',{user,isAdmin: isAdmin(req.session.currentUser)}))
-        .catch(error => next(error))
-    
+        .catch(error => next(error))    
 })
+
+
+
+
 
 router.post('/:id/delete', (req, res, next) => {
     const { id } = req.params
