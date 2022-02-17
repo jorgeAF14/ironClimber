@@ -1,6 +1,6 @@
 <h2>{{username}}</h2>
 
-<form action="/user/{{_id}}/edit" method="POST">
+<form action="/user/{{_id}}/edit" method="POST" enctype="multipart/form-data">
 
     <input type="submit" value="Guardar Edición">
 
@@ -36,5 +36,10 @@
             Materiales :
             <input type="text" name="climbType" value="{{climbType}}">
         </label>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="place-image-input-label">Image</span>
+        <input id="place-image-input" type="file" name="imageFile" class="form-control" placeholder="Place image"
+            aria-label="Placeimage" aria-describedby="place-image-input-label">
     </div>
 </form>

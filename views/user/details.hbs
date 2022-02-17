@@ -1,11 +1,9 @@
 <h1>{{user.username}}</h1>
-
+<img src="{{user.image}}" class="img-thumbnail" alt="profile photo">
 <p>{{user.email}}</p>
 <p>{{user.level}}</p>
 <p>{{user.biographyl}}</p>
 <p>{{user.role}}</p>
-
-
 <form action="/auth/logout" method="POST">
     <button>cerrar sesion</button>
 </form>
@@ -19,4 +17,3 @@
     <button>editar</button>
 </form>
 {{/if}}
-

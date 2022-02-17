@@ -5,8 +5,8 @@ const { isLoggedIn } = require('../middlewares')
 router.post('/new-comment/:id', isLoggedIn, (req, res, next) => {
       const { id } = req.params
       const place = id
-      const { username: ownername} = req.session.currentUser
-      const owner  = req.session.currentUser.id
+      const { username: ownername } = req.session.currentUser
+      const owner = req.session.currentUser.id
       const { comment } = req.body
       Review
             .create({ place, owner, comment, ownername })
@@ -16,7 +16,7 @@ router.post('/new-comment/:id', isLoggedIn, (req, res, next) => {
 
 router.post('/:id/delete', isLoggedIn, (req, res, next) => {
       const { id } = req.params
-      
+
       Review
             .findByIdAndDelete(id)
             .then(review => {

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User.model')
+const fileUploader = require('../config/cloudinary.config')
+
 const {isAdmin}=require('../utils')
 const { isLoggedIn, isAdminM} = require('../middlewares')
 
@@ -12,7 +14,7 @@ router.post('/search', (req, res, next) =>{
         .then(use=> res.redirect(`/user/${use.id}/details`))
         .catch(error => next(error)) 
 })
-router.get('/:id/details', isLoggedIn, (req, res, next) => {
+router.get('/:id/details',isLoggedIn, (req, res, next) => {
     const { id } = req.params
     User
         .findById(id)
@@ -28,12 +30,15 @@ router.get('/:id/edit',(req, res, next) => {
         .catch(error => next(error))
    
 })
-router.post('/:id/edit', (req, res, next) => {
+router.post('/:id/edit', fileUploader.single('imageFile'), (req, res, next) => {
     const { id } = req.params
     const { username, email, biography, level, climbType} = req.body
     User
-        .findByIdAndUpdate(id, { username, email, biography, level, climbType })
-        .then(user => res.redirect(`/user/${user.id}/details`))
+        .findByIdAndUpdate(id, { username, email, biography, level, climbType, image: req.file.path})
+        .then(user => {
+            res.redirect(`/user/${user.id}/details`)
+            console.log(user)
+        })
         .catch(error => next(error))
 })
 

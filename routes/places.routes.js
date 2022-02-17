@@ -25,6 +25,7 @@ router.post('/create', isExpert, fileUploader.single('imageFile'), (req, res, ne
         type: 'Point',
         coordinates: [lat, lng]
     }
+    console.log(req.file.path)
     Place
         .create({ name, location, images: [req.file.path], level: '5', material: '', access: '', parking: false, type: 'Rocodromo' })
         .then(place => res.redirect(`/places/${place.id}/edit`))
@@ -73,20 +74,43 @@ router.get('/:id/edit', isLoggedIn, isExpert,(req, res, next) => {
 })
 
 
+// // Route for edit (handler)
+// router.post('/:id/edit', isLoggedIn, isExpert,fileUploader.single('imageFile'),(req, res, next) => {
+//     const { id } = req.params
+//     const { name, lat, lng, level, material, access, parking, type } = req.body
+    
+    
+//     const location = {
+//         type: 'Point',
+//         coordinates: [lat, lng]
+//     }
+//     Place
+//         .findByIdAndUpdate(id, { name, location, images: [req.file.path], level, material, access, parking, type }, { new: true })
+//         .then((elm) => { 
+//             res.redirect('/places')
+//             console.log(elm)    
+//     } )
+//         .catch(err => console.log(err))
+// })
+
 // Route for edit (handler)
-router.post('/:id/edit', isLoggedIn, isExpert, (req, res, next) => {
+router.post('/:id/edit', isLoggedIn, isExpert, fileUploader.single('imageFile'), (req, res, next) => {
     const { id } = req.params
-    const { name, lat, lng, image, level, material, access, parking, type } = req.body
+    const { name, lat, lng, level, material, access, parking, type } = req.body
     const location = {
         type: 'Point',
         coordinates: [lat, lng]
-    }
+    }   
+
+
     Place
-        .findByIdAndUpdate(id, { name, location, image, level, material, access, parking, type }, { new: true })
-        .then(() => res.redirect('/places'))
+        .findByIdAndUpdate(id, { name, location, images: [req.file.path], level, material, access, parking, type }, { new: true })
+        .then((elm) => {
+            res.redirect('/places')
+            console.log(elm)
+        })
         .catch(err => console.log(err))
 })
-
 
 //delete Places
 router.post('/:id/delete', isLoggedIn, isExpert, (req, res, next) => {
