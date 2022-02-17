@@ -8,14 +8,6 @@
             <div class="col-md-9">
                 {{!-- Carrousel bootstrap --}}
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    {{!-- <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                            aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div> --}}
                     <div class="carousel-inner place-details-images">
                         {{#each place.images as | imageSrc |}}
                         <div class="carousel-item">
@@ -46,12 +38,6 @@
         <div class="col-md-6">
             <form>
                 <div class="form-group row">
-                    <label for="place-description" class="col-sm-3 col-form-label">DESCRIPCIÓN</label>
-                    <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="Descripción" value="{{place.description}}">
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label for="place-lat" class="col-sm-3 col-form-label">LATITUD</label>
                     <div class="col-sm-9">
                         <input type="text" disabled class="form-control-plaintext" id="place-lat" value="{{place.location.coordinates.[0]}}">
@@ -69,16 +55,16 @@
                         <input type="text" disabled class="form-control-plaintext" id="place-level" value="{{place.level}}">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="place-description" class="col-sm-3 col-form-label">DESCRIPCIÓN</label>
+                    <div class="col-sm-9">
+                        <input type="text" disabled class="form-control-plaintext" id="place-description" value="{{place.description}}">
+                    </div>
+                </div>
             </form>
         </div>
         <div class="col-md-6">
             <form>
-                <div class="form-group row">
-                    <label for="place-material" class="col-sm-3 col-form-label">MATERIAL</label>
-                    <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="place-material" value="{{place.material}}">
-                    </div>
-                </div>
                 <div class="form-group row">
                     <label for="place-access" class="col-sm-3 col-form-label">ACCESO</label>
                     <div class="col-sm-9">
@@ -99,22 +85,36 @@
                         <input type="text" disabled class="form-control-plaintext" id="place-type" value="{{place.type}}">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="place-material" class="col-sm-3 col-form-label">MATERIAL</label>
+                    <div class="col-sm-9">
+                        <input type="text" disabled class="form-control-plaintext" id="place-material" value="{{place.material}}">
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 </div>
 <div class="container">
-    <form action="/places/{{place.id}}/edit" method="GET">
-        <label for="edit-btn">
-            <input id="edit-btn" type="submit" value="Editar Lugar">
-        </label>
-    </form>
-    <br>
-    <form action="/places/{{place.id}}/delete" method="POST">
-        <label for="delete-btn">
-            <input id="delete-btn" type="submit" value="Borrar Lugar">
-        </label>
-    </form>
+    <div class="row justify-content-begin">
+        <div class="col-md-4">
+            <form action="/places/{{place.id}}/edit" method="GET">
+                <label for="edit-btn">
+                    <input class="btn btn-warning mb-3" id="edit-btn" type="submit" value="Editar Lugar">
+                </label>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <form action="/places/{{place.id}}/delete" method="POST">
+                <label for="delete-btn">
+                    <input class="btn btn-danger mb-3" id="delete-btn" type="submit" value="Borrar Lugar">
+                </label>
+            </form>
+        </div>            
+    </div> 
+</div>
+
+<div class="container">
     <form action="/reviews/new-comment/{{place.id}}" method="POST">
         <div>
             <label>
@@ -126,9 +126,8 @@
             </label>
         </div>
     </form>
-</div>
-
-
+</div> 
+    
 {{#each reviews}}
 <h4>{{ownername}}</h4>
 <h6>{{comment}}</h6>
@@ -140,4 +139,4 @@
 <script src="/js/place-details-map.js"></script>
 
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=____API KEY_______&callback=initMap&libraries=places&v=weekly"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi54rsIEVOLplWabQRqUsVZb3_lzCQ33w&callback=initMap&libraries=places&v=weekly"></script>
