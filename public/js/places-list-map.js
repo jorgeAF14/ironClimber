@@ -27,12 +27,27 @@ function getPlaces() {
 }
 
 function printPlacesMarkers(places) {
-
+    console.table(places);
+    const placesCardsContainerEl = document.getElementById('places-cards-container');
     const { Marker } = google.maps
 
     let markers = [];
 
     places.forEach(place => {
+        const placeCardEl = document.createElement('div');
+        placeCardEl.className = 'col-md-3 card';
+        placeCardEl.style.setProperty('width', '18rem');
+        placeCardEl.innerHTML = `
+            <img src=\"${place.images[0]}\" class="card-img-top" alt="place image">
+            <div class="card-body">
+                <h5 class="card-title">${place.name}</h5>
+                <p class="card-text">${place.description}</p>
+                <a href=\"/places/${place._id}\" class="btn btn-outline-secondary">Detalle del lugar</a>
+            </div>
+        `;
+
+        placesCardsContainerEl.appendChild(placeCardEl);
+
         markers.push(
             new Marker({
                 map,

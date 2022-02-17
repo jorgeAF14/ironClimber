@@ -28,7 +28,7 @@ router.post('/create', isExpert, fileUploader.single('imageFile'), (req, res, ne
 
     Place
         .create({ name, location, images: [req.file.path], level: '5', material: '', access: '', parking: false, type: 'Rocodromo' })
-        .then(place => res.redirect(`/places/${place.id}/edit`))
+        .then(place => res.redirect(`/places/${place.id}`))
         .catch(err => {
             res.render('places/new-places')
             console.error(err)
