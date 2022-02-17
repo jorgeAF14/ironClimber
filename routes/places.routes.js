@@ -1,81 +1,86 @@
 const router = require('express').Router();
+const fileUploader = require('../config/cloudinary.config')
 
 const Place = require('../models/Place.model')
+const Review = require('../models/Review.model');
+
+const { isLoggedIn, isExpert} = require('../middlewares');
+const { isAdmin } = require('../utils')
+
 
 // Create New Place form (render)
-router.get('/create', (req, res, next) => {
+router.get('/create', isLoggedIn, isExpert, (req, res, next) => {
 
     Place
         .find()
-        .then(places => res.render('../views/places/new-places', { places }))
+        .then(places => res.render('places/new-places', { places }))
         .catch(err => console.error(err))
 })
 
 // Create New Place form (handler)
-router.post('/create', (req, res, next) => {
+router.post('/create', isExpert, fileUploader.single('imageFile'), (req, res, next) => {
 
     const { name, lat, lng } = req.body
-
     const location = {
         type: 'Point',
         coordinates: [lat, lng]
     }
-
     Place
-        .create({ name, location, image: [], level: '5', material: '', access: '', parking: false, type: 'Rocodromo' })
-        .then(() => res.redirect('/places/'))
+        .create({ name, location, images: [req.file.path], level: '5', material: '', access: '', parking: false, type: 'Rocodromo' })
+        .then(place => res.redirect(`/places/${place.id}/edit`))
         .catch(err => {
-            res.render('../views/places/new-places')
+            res.render('places/new-places')
             console.error(err)
         })
 })
 
 
 // Places List
-router.get('/', (req, res, next) => {
+router.get('/', isLoggedIn,(req, res, next) => {
     Place
         .find()
         .select('name')
-        .then(placesList => res.render('../views/places/places-list', { placesList }))
+        .then(placesList => res.render('places/places-list', { placesList, isAdmin: isAdmin(req.session.currentUser) }))
         .catch(err => console.log(err))
 })
 
 
 // Places Detail
-router.get('/:id', (req, res, next) => {
+router.get('/:id',isLoggedIn, (req, res, next) => {
 
     const { id } = req.params
-
-    Place
-        .findById(id)
-        .then(placeDetail => res.render('../views/places/places-details', placeDetail))
-        .catch(err => console.log(err))
+    const placePromise = Place.findById(id)
+    const reviewsPromise = Review.find({ place: id })
+   
+    Promise.all([placePromise, reviewsPromise])
+        .then(([place, reviews])  => {
+            console.log(place)                   
+            res.render('places/place-details', { place, reviews, isAdmin: isAdmin(req.session.currentUser) })
+        })   
+    
 })
 
 
+
+
 // Place for edit (render)
-router.get('/:id/edit', (req, res, next) => {
-
+router.get('/:id/edit', isLoggedIn, isExpert,(req, res, next) => {
     const { id } = req.params
-
     Place
         .findById(id)
-        .then(placeToEdit => res.render('../views/places/edit-places', placeToEdit))
+        .then(placeToEdit => res.render('places/edit-places', placeToEdit))
         .catch(err => console.log(err))
 })
 
 
 // Route for edit (handler)
-router.post('/:id/edit', (req, res, next) => {
-
+router.post('/:id/edit', isLoggedIn, isExpert, (req, res, next) => {
     const { id } = req.params
     const { name, lat, lng, image, level, material, access, parking, type } = req.body
-
     const location = {
         type: 'Point',
         coordinates: [lat, lng]
     }
-
     Place
         .findByIdAndUpdate(id, { name, location, image, level, material, access, parking, type }, { new: true })
         .then(() => res.redirect('/places'))
@@ -84,12 +89,12 @@ router.post('/:id/edit', (req, res, next) => {
 
 
 //delete Places
-router.post('/:id/delete', (req, res, next) => {
+router.post('/:id/delete', isLoggedIn, isExpert, (req, res, next) => {
 
     const { id } = req.params
 
     Place
-        .findByIdAndRemove(id)
+        .findByIdAndDelete(id)
         .then(() => res.redirect('/places'))
         .catch(err => console.log(err))
 })

@@ -1,0 +1,40 @@
+<h2>{{username}}</h2>
+
+<form action="/user/{{_id}}/edit" method="POST">
+
+    <input type="submit" value="Guardar Edición">
+
+    <div>
+        <label>
+            Nombre :
+            <input type="text" name="name" value="{{username}}">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            email :
+            <input type="email" name="email" value="{{email}}">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            biografia :
+            <input type="text" name="biography" value="{{biography}}">
+        </label>
+    </div>
+    <div>
+        <label>
+            Nivel :
+            <input type="text" name="level" value="{{level}}">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Materiales :
+            <input type="text" name="climbType" value="{{climbType}}">
+        </label>
+    </div>
+</form>

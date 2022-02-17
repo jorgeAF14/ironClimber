@@ -1,22 +1,52 @@
 <h2>Crear un Lugar</h2>
 
-<form action="/places/create" method="POST">
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <form action="/places/create" method="POST" enctype="multipart/form-data">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-name-input-label">Nombre</span>
+                    <input id="place-name-input" type="text" name="name" class="form-control" placeholder="Place name"
+                        aria-label="Placename" aria-describedby="place-name-input-label">
+                </div>        
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-lat-input-label">Latitud</span>
+                    <input id="place-lat-input" name="lat" type="text" class="form-control" placeholder="Place latitude"
+                        aria-label="Placelatitude" aria-describedby="place-lat-input-label">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-lng-input-label">Longitud</span>
+                    <input id="place-lng-input" type="text" name="lng" class="form-control"
+                        placeholder="Place longitude" aria-label="Placelongitude"
+                        aria-describedby="place-lng-input-label">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-image-input-label">Image</span>
+                    <input id="place-image-input" type="file" name="imageFile" class="form-control" placeholder="Place image"
+                        aria-label="Placeimage" aria-describedby="place-image-input-label">
+                </div>
+                <div>
+                    <input type="submit" class="btn btn-primary mb-3" value="Crear Lugar">
+                </div>
+            </form>
+        </div>
+        <div class="col-9">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="place-search">Search Place</span>
+                <input id="place-search-input" type="text" class="form-control"
+                    placeholder="Search the place you want to create" aria-label="Plasesearch"
+                    aria-describedby="place-search">
+            </div>
+            <div>
+                <figure id="createPlacesMap"></figure>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <label>
-        Name
-        <input type="text" name="name">
-    </label>
+<script src="/js/map-styles.js"></script>
+<script src="/js/create-places-map.js"></script>
 
-    <label>Latitud
-        <input name="lat" type="text">
-    </label>
-    <br><br>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtg2Lfe5knClvKRAUXSq2OhdP0rA1jjSc&callback=initMap&libraries=places&v=weekly"></script>
 
-    <label>Longitud
-        <input name="lng" type="text">
-    </label>
-    <br><br>
-
-    <input type="submit" value="Crear Lugar">
-
-</form>

@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
+const { isLoggedIn } = require('../middlewares');
 const { findOne } = require('../models/User.model');
 const User = require('../models/User.model')
 const saltRounds = 10
 
-/* GET home page */
+
 router.get('/signup', (req, res, next) => res.render('auth/sign-up-form'))
 router.post('/signup', (req, res, next) => {
-    //debe incluirse un middleware para logearse
+    
     const { password } = req.body
     bcrypt
         .genSalt(saltRounds)
@@ -26,24 +27,29 @@ router.post('/login', (req, res, next) => {
     User
        .findOne({email})
        .then(user =>{
-           console.log(user)
-           console.log(req.session)
+           
            if(!user){
                res.render('auth/log-in', { errorMessage: 'Email no registrado en la Base de Datos'})
-               console.log(user)
                return
            }else if (bcrypt.compareSync(password,user.password)===false){
-               res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
+               res.render('auth/log-in', { errorMessage: 'La contraseña es incorrecta' })
                return
            } else{
                req.session.currentUser = user
-               console.log(user)
-               res.redirect('/')
+               res.redirect(`/user/${user.id}/details`)
            }
        })
        .catch(error => next(error))
 })
 
-router.post('/logout', (req, res, next) => res.redirect("/"))
- 
+
+router.get('/profile',isLoggedIn,(req, res, next) => {
+    const id = req.session.currentUser._id
+    res.redirect(`/user/${id}/details`)
+})
+
+router.post('/logout', (req, res, next) => {
+    req.session.destroy(() => res.redirect("/"))
+    })
+
 module.exports = router

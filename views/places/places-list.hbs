@@ -1,53 +1,22 @@
 <h2>Lista de Lugares</h2>
-
+<div>
+    <figure id="placesListMap"></figure>
+</div>
 <div class="container">
     <div class="row">
-        <div class="col">
-            <ul>
-                {{#each placeList}}
-                <li>{{name}}</li>
-                <li>{{type}}</li>
-                <li>{{location.coordinates.[0]}}</li>
-                <li>{{location.coordinates.[1]}}</li>
-
-                <a href="/places/{{_id}}">Detalles del Lugar</a>
-                <br><br>
-
-                <form action="/places/{{_id}}/delete" method="POST">
-                    <label for="delete-btn">
-                        <input id="delete-btn" type="submit" value="<h2>Places List</h2>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <ul>
-                {{#each placeList}}
-                <li>{{name}}</li>
-                <li>{{type}}</li>
-                <li>{{location.coordinates.[0]}}</li>
-                <li>{{location.coordinates.[1]}}</li>
-            
-                <a href="/places/{{_id}}">Place Detail</a>
-                <br><br>
-
-                <form action="/places/{{_id}}/delete" method="POST">
-                    <label for="delete-btn">
-                        <input id="delete-btn" type="submit" value="Delete Place" >
-                    </label>
-                </form>
-                
-                {{/each}}
-            </ul>
+        <div class="col-md-12">
+            <form action="/places/create">
+                <label for="edit-btn">
+                    <button id="create-btn" class="btn btn-primary mb-3" type="submit">Crear lugar</button>
+                </label>
+            </form>
         </div>
     </div>
 </div>
 
-">
-                    </label>
-                </form>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/map-styles.js"></script>
+<script src="/js/places-list-map.js"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtg2Lfe5knClvKRAUXSq2OhdP0rA1jjSc&callback=initMap&libraries=places&v=weekly"></script>
 
-                {{/each}}
-            </ul>
-        </div>
-    </div>
-</div>
