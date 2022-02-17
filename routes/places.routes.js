@@ -50,13 +50,13 @@ router.get('/:id',isLoggedIn, (req, res, next) => {
     const { id } = req.params
     const placePromise = Place.findById(id)
     const reviewsPromise = Review.find({ place: id })
-    //nueva promesa
-    // const userPromise = User.findById(req.session.currentUser)
+   
     Promise.all([placePromise, reviewsPromise])
-        .then(data => {
-            [place, reviews] = data         
+        .then(([place, reviews])  => {
+            console.log(place)                   
              res.render('places/place-details', { place, reviews })
         })   
+    
 })
 
 

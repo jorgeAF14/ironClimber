@@ -26,18 +26,15 @@ router.post('/login', (req, res, next) => {
     User
        .findOne({email})
        .then(user =>{
-           console.log(user)
-           console.log(req.session)
+           
            if(!user){
                res.render('auth/log-in', { errorMessage: 'Email no registrado en la Base de Datos'})
-               console.log(user)
                return
            }else if (bcrypt.compareSync(password,user.password)===false){
                res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
                return
            } else{
                req.session.currentUser = user
-               console.log(user)
                res.redirect(`/user/${user.id}/details`)
            }
        })

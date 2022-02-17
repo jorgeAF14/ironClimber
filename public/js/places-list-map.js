@@ -48,11 +48,6 @@ function printPlacesMarkers(places) {
 
     markers.forEach(marker => {
         marker.addListener("click", (mapsMouseEvent) => {
-            console.log(marker.placeId);
-            console.log('***********');
-            console.log('lat : ', mapsMouseEvent.latLng.lat());
-            console.log('lng : ', mapsMouseEvent.latLng.lng());
-            console.log('***********');
             location.href = `${location.origin}/places/${marker.placeId}`
         });
     })
