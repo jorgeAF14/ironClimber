@@ -2,19 +2,17 @@
 <div>
     <figure id="placesListMap"></figure>
 </div>
-
-{{#if isAdmin}}
-<form action="/places/create">
-<label for="edit-btn">
-    <button id="create-btn" class="btn btn-outline-success" type="submit">Crear lugar</button>
-</label>
-</form>
-{{/if}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/places/create">
+                <label for="edit-btn">
+                    <button id="create-btn" class="btn btn-primary mb-3" type="submit">Crear lugar</button>
+                </label>
+            </form>
+        </div>
+    </div>
 </div>
-
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/map-styles.js"></script>
