@@ -33,7 +33,7 @@ router.post('/login', (req, res, next) => {
                console.log(user)
                return
            }else if (bcrypt.compareSync(password,user.password)===false){
-               res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
+               res.render('auth/log-in', { errorMessage: 'La contraseña es incorrecta' })
                return
            } else{
                req.session.currentUser = user

@@ -9,9 +9,9 @@ function drawMap(){
     const { Map, Marker } = google.maps;
     const firstCarouselItemEl = document.querySelector('.carousel-item');
     firstCarouselItemEl.classList.add('active');
-    const placeName = document.getElementById('place-name-input').value;
-    const lat = parseFloat(document.getElementById('place-lat-input').value);           // convert text in Float number
-    const lng = parseFloat(document.getElementById('place-lng-input').value);           // convert text in Float number
+    const placeName = document.getElementById('place-name').value;
+    const lat = parseFloat(document.getElementById('place-lat').value);           // convert text in Float number
+    const lng = parseFloat(document.getElementById('place-lng').value);           // convert text in Float number
     const latLng = { lat, lng };
     map = new Map(
         document.getElementById('placeDetailsMap'),

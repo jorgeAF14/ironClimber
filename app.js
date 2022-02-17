@@ -19,6 +19,7 @@ require("./config")(app);
 require('./config/session.config')(app)
 
 app.locals.siteTitle = `ironClimber_`;
+app.locals.siteName = `IRON CLIMBER`;
 
 // 👇 Start handling routes here
 // const index = require("./routes/index");

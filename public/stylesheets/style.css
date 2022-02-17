@@ -1,28 +1,112 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Montserrat, sans-serif;
 
 }
 
-.navbar{
-  margin: 0px;
-  padding: 0px;
+a {
+    color: inherit !important;
+    text-decoration: none;
 }
+
+a:hover {
+    color: white; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+header{
+  background: url('/images/header-ironclimber.svg') no-repeat center center fixed; 
+  background-size: cover;
+  height: 90px;
+  color: white;
+}
+
+.row div{
+  text-align: center;
+}
+
+nav{
+  top: 10px;
+}
+
+nav ul{
+  align-items: center;
+}
+
+.nav-link:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.nav-item{
+  padding: 0px 10px;
+}
+
+.nav-item i{
+  padding: 0px 5px;
+}
+
+.site-name{
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.site-name:hover{
+  background-color: transparent;
+}
+
+.search-user-form input{
+  width: 430px;
+}
+
+.icons-section{
+   text-align: center;
+   color: white;
+   padding: 40px 0px;
+   background: #358cd5;
+   border-top: 5px solid #0acdf4;
+   border-bottom: 5px solid #20c3e4;
+}
+
+.icons-section i{
+  font-size: 120px;
+}
+
 .home-pictures{
   width: 100%;
   height: 500px;
   margin: 0px;
 }
+
+.place-details .form-group{
+  background-color: #f2f2f2;
+  border: 5px solid #fff;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.place-details-map{
+  border-radius: 50%;
+  border: 4px solid black;
+  display: inline-table;
+  text-align: center;
+}
+
+.place-details-images{
+  width: 100%;
+  height: 500px;
+  margin: 0px;
+}
+
 .index-container{
 margin: 0px;
 margin-right: 0px;
  padding: 0px;
 }
+
 .row{
   justify-content: around;
-}
-
-a {
-  color: #00b7ff;
 }
 
 h1 {
@@ -43,4 +127,13 @@ h1 {
 
 .place-details input{
   background-color: white !important;
+}
+
+footer{
+     padding: 40px 0px;
+}
+
+footer i{
+  font-size: 28px;
+  cursor: pointer;
 }
