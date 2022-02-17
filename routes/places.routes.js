@@ -5,6 +5,7 @@ const Place = require('../models/Place.model')
 const Review = require('../models/Review.model');
 
 const { isLoggedIn, isExpert} = require('../middlewares');
+const { isAdmin } = require('../utils')
 
 
 // Create New Place form (render)
@@ -39,7 +40,7 @@ router.get('/', isLoggedIn,(req, res, next) => {
     Place
         .find()
         .select('name')
-        .then(placesList => res.render('places/places-list', { placesList }))
+        .then(placesList => res.render('places/places-list', { placesList, isAdmin: isAdmin(req.session.currentUser) }))
         .catch(err => console.log(err))
 })
 
@@ -54,7 +55,7 @@ router.get('/:id',isLoggedIn, (req, res, next) => {
     Promise.all([placePromise, reviewsPromise])
         .then(([place, reviews])  => {
             console.log(place)                   
-             res.render('places/place-details', { place, reviews })
+            res.render('places/place-details', { place, reviews, isAdmin: isAdmin(req.session.currentUser) })
         })   
     
 })

@@ -5,6 +5,10 @@
 <p>{{user.biographyl}}</p>
 <p>{{user.role}}</p>
 
+
+<form action="/auth/logout" method="POST">
+    <button>cerrar sesion</button>
+</form>
 {{#if ./isAdmin}}
 <form action="/user/{{user.id}}/delete" method="POST">
     <button>eliminar</button>

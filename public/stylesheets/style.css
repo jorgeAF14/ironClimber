@@ -38,6 +38,13 @@ nav ul{
   background-repeat: no-repeat;
   width: 100%;
 }
+nav .btn-outline-success{
+  color: white;
+  border-color: white;
+}
+.nav-link{
+  color: white;
+}
 
 .nav-item{
   padding: 0px 10px;

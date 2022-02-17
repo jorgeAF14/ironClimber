@@ -14,4 +14,14 @@ router.post('/new-comment/:id', isLoggedIn, (req, res, next) => {
             .catch(error => next(error))
 })
 
+router.post('/:id/delete', isLoggedIn, (req, res, next) => {
+      const { id } = req.params
+      
+      Review
+            .findByIdAndDelete(id)
+            .then(review => {
+                  res.redirect(`/places/${review.place}`)
+            })
+})
+
 module.exports = router

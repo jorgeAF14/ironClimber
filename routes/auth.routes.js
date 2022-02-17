@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
+const { isLoggedIn } = require('../middlewares');
 const { findOne } = require('../models/User.model');
 const User = require('../models/User.model')
 const saltRounds = 10
@@ -41,6 +42,14 @@ router.post('/login', (req, res, next) => {
        .catch(error => next(error))
 })
 
-router.post('/logout', (req, res, next) => res.redirect("/"))
+
+router.get('/profile',isLoggedIn,(req, res, next) => {
+    const id = req.session.currentUser._id
+    res.redirect(`/user/${id}/details`)
+})
+
+router.post('/logout', (req, res, next) => {
+    req.session.destroy(() => res.redirect("/"))
+    })
 
 module.exports = router

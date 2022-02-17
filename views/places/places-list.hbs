@@ -2,11 +2,14 @@
 <div>
     <figure id="placesListMap"></figure>
 </div>
+
+{{#if isAdmin}}
 <form action="/places/create">
 <label for="edit-btn">
     <button id="create-btn" class="btn btn-outline-success" type="submit">Crear lugar</button>
 </label>
 </form>
+{{/if}}
 </div>
 
 
