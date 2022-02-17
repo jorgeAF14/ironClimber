@@ -1,22 +1,28 @@
-<h2>Lista de Lugares</h2>
-<div>
-    <figure id="placesListMap"></figure>
+<div class="view-description">
+    <span class="view-title"><i class="bi bi-geo-alt"></i> Lista de Lugares. </span>
+    <span class="view-introduction"> Encuentra tus lugares para escalar</span>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+<div class="container btn-container">
+    <div class="row justify-content-end">
+        <div class="col-md-2">
             <form action="/places/create">
-                <label for="edit-btn">
-                    <button id="create-btn" class="btn btn-primary mb-3" type="submit">Crear lugar</button>
+                <label for="create-btn">
+                    <button id="create-btn" class="btn btn-primary mb-3 btn-lg" type="submit"><i class="bi bi-plus-circle"></i> Crear</button>
                 </label>
             </form>
         </div>
     </div>
 </div>
+<div>
+    <figure id="placesListMap"></figure>
+</div>
+<div class="container">
+    <div id="places-cards-container" class="row justify-content-center"></div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/map-styles.js"></script>
 <script src="/js/places-list-map.js"></script>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtg2Lfe5knClvKRAUXSq2OhdP0rA1jjSc&callback=initMap&libraries=places&v=weekly"></script>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=____API KEY_______&callback=initMap&libraries=places&v=weekly"></script>

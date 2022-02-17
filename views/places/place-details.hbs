@@ -1,11 +1,37 @@
-<h2>Detalles del Lugar</h2>
-<section>
-    <div class="container">
+<div class="view-description">
+    <span class="view-title"><i class="bi bi-geo-alt"></i> Detalles del lugar - </span>
+    <span id="place-name" class="view-introduction"> {{place.name}} </span>
+</div>
+<div class="container-fluid btn-container">
+    <div class="row justify-content-end">
+        <div class="col-12 col-md-2 btn-col">
+            <form action="/places/{{place.id}}/edit" method="GET">
+                <label for="edit-btn">
+                    <button id="edit-btn" class="btn btn-success mb-3 btn-lg" type="submit">
+                        <i class="bi bi-pencil-square"></i> Editar</button>
+                </label>
+            </form>
+            <form action="/places/{{place.id}}/delete" method="POST">
+                <label for="delete-btn">
+                    <button id="delete-btn" class="btn btn-danger mb-3 btn-lg" type="submit">
+                        <i class="bi bi-trash"></i> Borrar</button>
+                </label>
+            </form>
+        </div>
+    </div>
+</div>
+<section class="place-details-section">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
-                <figure id="placeDetailsMap"></figure>
+            <div class="col-md-4">
+                <div>
+                    <p>{{place.description}}</p>
+                </div>
+                <div>
+                    <figure id="placeDetailsMap"></figure>
+                </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 {{!-- Carrousel bootstrap --}}
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner place-details-images">
@@ -32,33 +58,24 @@
 </section>
 <div class="container place-details">
     <div class="row">
-        <div class="col-12">
-            <input type="text" disabled class="form-control-plaintext" id="place-name" value="{{place.name}}">
-        </div>
         <div class="col-md-6">
             <form>
                 <div class="form-group row">
                     <label for="place-lat" class="col-sm-3 col-form-label">LATITUD</label>
                     <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="place-lat" value="{{place.location.coordinates.[0]}}">
+                        <span type="text" class="form-control-plaintext" id="place-lat">{{place.location.coordinates.[0]}}</span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="place-lng" class="col-sm-3 col-form-label">LONGITUD</label>
                     <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="place-lng" value="{{place.location.coordinates.[1]}}">
+                        <span type="text" class="form-control-plaintext" id="place-lng">{{place.location.coordinates.[1]}}</span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="place-level" class="col-sm-3 col-form-label">LEVEL</label>
                     <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="place-level" value="{{place.level}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-description" class="col-sm-3 col-form-label">DESCRIPCIÓN</label>
-                    <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="place-description" value="{{place.description}}">
+                        <span type="text" class="form-control-plaintext" id="place-level">{{place.level}}</span>
                     </div>
                 </div>
             </form>
@@ -68,34 +85,41 @@
                 <div class="form-group row">
                     <label for="place-access" class="col-sm-3 col-form-label">ACCESO</label>
                     <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="place-access"
-                            value="{{place.access}}">
+                        <span type="text" class="form-control-plaintext" id="place-access">
+                            {{place.access}}</span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="place-parking" class="col-sm-3 col-form-label">PARKING</label>
                     <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="place-parking"
-                            value="{{place.parking}}">
+                        <span type="text" class="form-control-plaintext" id="place-parking">
+                            {{place.parking}}
+                            </span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="place-type" class="col-sm-3 col-form-label">TIPO</label>
                     <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="place-type" value="{{place.type}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-material" class="col-sm-3 col-form-label">MATERIAL</label>
-                    <div class="col-sm-9">
-                        <input type="text" disabled class="form-control-plaintext" id="place-material" value="{{place.material}}">
+                        <span type="text" class="form-control-plaintext" id="place-type">
+                            {{place.type}}
+                        </span>
                     </div>
                 </div>
             </form>
         </div>
+        <div class="col-12">
+            <div class="form-group row">
+                <label for="place-material" class="col-sm-3 col-form-label">MATERIAL</label>
+                <div class="col-sm-9">
+                    <p type="text" class="form-control-plaintext" id="place-material">
+                        {{place.material}}
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div class="container">
+{{!-- <div class="container">
     <div class="row justify-content-begin">
         <div class="col-md-4">
             <form action="/places/{{place.id}}/edit" method="GET">
@@ -112,7 +136,7 @@
             </form>
         </div>            
     </div> 
-</div>
+</div> --}}
 
 <div class="container">
     <form action="/reviews/new-comment/{{place.id}}" method="POST">
@@ -141,7 +165,9 @@
 
 {{/each}}
 
+
+
 <script src="/js/map-styles.js"></script>
 <script src="/js/place-details-map.js"></script>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtg2Lfe5knClvKRAUXSq2OhdP0rA1jjSc&callback=initMap&libraries=places&v=weekly"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=____API KEY_______&callback=initMap&libraries=places&v=weekly"></script>
