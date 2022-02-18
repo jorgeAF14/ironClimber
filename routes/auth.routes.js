@@ -52,6 +52,7 @@ router.get('/profile',isLoggedIn,(req, res, next) => {
 })
 
 router.post('/logout', (req, res, next) => {
+    req.app.locals.myUser = null;
     req.session.destroy(() => res.redirect("/"))
 })
 
