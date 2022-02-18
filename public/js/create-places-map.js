@@ -4,7 +4,6 @@ let singleLocation
 
 function initMap() {
     drawMap()
-    //getPlaces()
 }
 
 function drawMap() {
@@ -15,8 +14,7 @@ function drawMap() {
         document.getElementById('createPlacesMap'),
         {
             zoom: 11,
-            center: latLng,
-            // styles: mapStyles.yellowParks
+            center: latLng
         }
     )
 
@@ -125,28 +123,4 @@ function drawMap() {
         map.fitBounds(bounds);
     });
 
-}
-
-function getPlaces() {
-
-    axios.get('/api/places')
-        .then(response => printPlacesMarkers(response.data))
-        .catch(err => console.log(err))
-}
-
-function printPlacesMarkers(places) {
-
-    const { Marker } = google.maps
-
-    places.forEach(elm => {
-
-        new Marker({
-            map,
-            position: {
-                lat: elm.location.coordinates[0],
-                lng: elm.location.coordinates[1]
-            },
-            title: elm.name
-        })
-    })
 }

@@ -73,30 +73,11 @@ router.get('/:id/edit', isLoggedIn, isExpert,(req, res, next) => {
         .catch(err => console.log(err))
 })
 
-
-// // Route for edit (handler)
-// router.post('/:id/edit', isLoggedIn, isExpert,fileUploader.single('imageFile'),(req, res, next) => {
-//     const { id } = req.params
-//     const { name, lat, lng, level, material, access, parking, type } = req.body
-    
-    
-//     const location = {
-//         type: 'Point',
-//         coordinates: [lat, lng]
-//     }
-//     Place
-//         .findByIdAndUpdate(id, { name, location, images: [req.file.path], level, material, access, parking, type }, { new: true })
-//         .then((elm) => { 
-//             res.redirect('/places')
-//             console.log(elm)    
-//     } )
-//         .catch(err => console.log(err))
-// })
-
 // Route for edit (handler)
-router.post('/:id/edit', isLoggedIn, isExpert, fileUploader.single('imageFile'), (req, res, next) => {
+router.post('/:id/edit', isLoggedIn, isExpert, (req, res, next) => {
     const { id } = req.params
-    const { name, lat, lng, level, material, access, parking, type } = req.body
+    const { name, lat, lng, level, material, access, parking, type } = req.body;
+    console.log(lat, lng);
     const location = {
         type: 'Point',
         coordinates: [lat, lng]
@@ -104,7 +85,7 @@ router.post('/:id/edit', isLoggedIn, isExpert, fileUploader.single('imageFile'),
 
 
     Place
-        .findByIdAndUpdate(id, { name, location, images: [req.file.path], level, material, access, parking, type }, { new: true })
+        .findByIdAndUpdate(id, { name, location, level, material, access, parking, type }, { new: true })
         .then((elm) => {
             res.redirect('/places')
             console.log(elm)

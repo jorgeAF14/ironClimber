@@ -1,213 +1,67 @@
-<h2>Editar el Lugar</h2>
-
-{{!-- <div class="container place-details">
-    <div class="row">
-        <div class="col-12">
-            <input type="text" class="form-control-plaintext" id="place-name" name="name" value="{{name}}">
-        </div>
-        <div class="col-md-6">
-            <form>
-                <div class="form-group row">
-                    <label for="place-lat" class="col-sm-3 col-form-label">LATITUD</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control-plaintext" id="place-lat" name="lat"
-                            value="{{location.coordinates.[0]}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-lng" class="col-sm-3 col-form-label">LONGITUD</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control-plaintext" id="place-lng" name="lng"
-                            value="{{location.coordinates.[1]}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-level" class="col-sm-3 col-form-label">LEVEL</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-level" name="level"
-                            value="{{level}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-description" class="col-sm-3 col-form-label">DESCRIPCIÓN</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-description" name="description"
-                            value="{{description}}">
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="col-md-6">
-            <form>
-                <div class="form-group row">
-                    <label for="place-access" class="col-sm-3 col-form-label">ACCESO</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-access" name="access"
-                            value="{{access}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-parking" class="col-sm-3 col-form-label">PARKING</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-parking" name="parking"
-                            value="{{parking}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-type" class="col-sm-3 col-form-label">TIPO</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-type" name="type" value="{{type}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-material" class="col-sm-3 col-form-label">MATERIAL</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-material" name="material"
-                            value="{{material}}">
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="input-group mb-10">
-            <span class="input-group-text" id="place-image-input-label">Image</span>
-            <input id="place-image-input" type="file" name="imageFile" class="form-control" placeholder="Place image"
-                aria-label="Placeimage" aria-describedby="place-image-input-label">
-
-
-
-            
-                <label for="edit-btn">
-                    <input class="btn btn-warning mb-3" id="edit-btn" type="submit" value="Guardar Edición">
-                </label>
-            </form>
-        </div>
-    </div>
-</div> --}}
-
-<div class="container place-details">
-    <div class="row">
-        <form action="/places/{{_id}}/edit" method="POST">
-            <label for="edit-btn">
-                <input class="btn btn-outline-warning mb-3" id="edit-btn" type="submit" value="Guardar Edición">
-            </label>
-
-            <div class="col-md-4">
-                <div class="form-group row">
-                    <label for="place-name" class="col-sm-3 col-form-label">Nombre</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-name" name="name" value="{{name}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-lat" class="col-sm-3 col-form-label">Latitud</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control-plaintext" id="place-lat" name="lat"
-                            value="{{location.coordinates.[0]}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-lng" class="col-sm-3 col-form-label">Longitud</label>
-                    <div class="col-sm-9">
-                        <input type="number" class="form-control-plaintext" id="place-lng" name="lng"
-                            value="{{location.coordinates.[1]}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-level" class="col-sm-3 col-form-label">Nivel</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-level" name="level"
-                            value="{{level}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="place-description" class="col-sm-3 col-form-label">Descripción</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-description" name="description"
-                            value="{{description}}">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="form-group row">
-                    <label for="place-access" class="col-sm-3 col-form-label">Acceso</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control-plaintext" id="place-access" name="access"
-                            value="{{access}}">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-
-
-
-
-        </form>
-    </div>
+<div class="view-description">
+    <span class="view-title"><i class="bi bi-pencil-square"></i> Editar - </span>
+    <span id="place-name" class="view-introduction"> {{name}} </span>
 </div>
-
-
-
-
 <form action="/places/{{_id}}/edit" method="POST">
-    <div class="col-md-4">
-        <div class="form-group row">
-            <label for="place-name" class="col-sm-3 col-form-label">Nombre</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control-plaintext" id="place-name" name="name" value="{{name}}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-name-input-label">Nombre</span>
+                    <input id="place-name-input" type="text" name="name" class="form-control" placeholder="Place name"
+                        aria-label="Placename" aria-describedby="place-name-input-label" value="{{name}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-lat-input-label">Latitud</span>
+                    <input id="place-lat-input" name="lat" type="text" class="form-control" placeholder="Place latitude"
+                        aria-label="Placelatitude" aria-describedby="place-lat-input-label" value="{{location.coordinates.[0]}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-lng-input-label">Longitud</span>
+                    <input id="place-lng-input" type="text" name="lng" class="form-control" placeholder="Place longitude"
+                        aria-label="Placelongitude" aria-describedby="place-lng-input-label" value="{{location.coordinates.[1]}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-level-input-label">Nivel</span>
+                    <input id="place-level-input" type="text" name="level" class="form-control" placeholder="Place level"
+                        aria-label="Placelevel" aria-describedby="place-level-input-label" value="{{level}}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-access-input-label">Acceso</span>
+                    <input id="place-access-input" type="text" name="access" class="form-control" placeholder="Place access"
+                        aria-label="Placeaccess" aria-describedby="place-access-input-label" value="{{access}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-parking-input-label">Parking</span>
+                    <input id="place-parking-input" type="text" name="parking" class="form-control" placeholder="Place parking"
+                        aria-label="Placeparking" aria-describedby="place-parking-input-label" value="{{parking}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-type-input-label">Tipo</span>
+                    <input id="place-type-input" type="text" name="type" class="form-control" placeholder="Place type"
+                        aria-label="Placetype" aria-describedby="place-type-input-label" value="{{type}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-material-input-label">Material</span>
+                    <input id="place-material-input" type="text" name="material" class="form-control" placeholder="Place material"
+                        aria-label="Placematerial" aria-describedby="place-material-input-label" value="{{material}}">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="place-description-input-label">Descripción</span>
+                    <input id="place-description-input" type="text" name="description" class="form-control"
+                        placeholder="Place description" aria-label="Placedescription" aria-describedby="place-description-input-label"
+                        value="{{description}}">
+                </div>
+            </div>
+            <div class="col-md-12 edit-btn-container">
+                <label for="edit-btn">
+                    <input class="btn btn-success mb-3" id="edit-btn" type="submit" value="Guardar Edición">
+                </label>
             </div>
         </div>
-        <div class="form-group row">
-            <label for="place-lat" class="col-sm-3 col-form-label">Latitud</label>
-            <div class="col-sm-9">
-                <input type="number" class="form-control-plaintext" id="place-lat" name="lat"
-                    value="{{location.coordinates.[0]}}">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="place-lng" class="col-sm-3 col-form-label">Longitud</label>
-            <div class="col-sm-9">
-                <input type="number" class="form-control-plaintext" id="place-lng" name="lng"
-                    value="{{location.coordinates.[1]}}">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="place-level" class="col-sm-3 col-form-label">Nivel</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control-plaintext" id="place-level" name="level" value="{{level}}">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="place-description" class="col-sm-3 col-form-label">Descripción</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control-plaintext" id="place-description" name="description"
-                    value="{{description}}">
-            </div>
-        </div>
+    </div>
 </form>
-</div>
-
-
-
-
-<input type="text" class="form-control-plaintext" id="place-parking" name="parking" value="{{parking}}">
-<input type="text" class="form-control-plaintext" id="place-type" name="type" value="{{type}}">
-<input type="text" class="form-control-plaintext" id="place-material" name="material" value="{{material}}">
-<input id="place-image-input" type="file" name="imageFile" class="form-control" placeholder="Place image"
-    aria-label="Placeimage" aria-describedby="place-image-input-label">
-
-
-</div>
-</div>
-
-
-
-
-<script src="/js/map-styles.js"></script>
-<script src="/js/create-places-map.js"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=____API KEY_______&callback=initMap&libraries=places&v=weekly"></script>

@@ -1,45 +1,50 @@
-<h2>{{username}}</h2>
-
-<form action="/user/{{_id}}/edit" method="POST" enctype="multipart/form-data">
-
-    <input type="submit" value="Guardar Edición">
-
-    <div>
-        <label>
-            Nombre :
-            <input type="text" name="name" value="{{username}}">
-        </label>
-    </div>
-
-    <div>
-        <label>
-            email :
-            <input type="email" name="email" value="{{email}}">
-        </label>
-    </div>
-
-    <div>
-        <label>
-            biografia :
-            <input type="text" name="biography" value="{{biography}}">
-        </label>
-    </div>
-    <div>
-        <label>
-            Nivel :
-            <input type="text" name="level" value="{{level}}">
-        </label>
-    </div>
-
-    <div>
-        <label>
-            Materiales :
-            <input type="text" name="climbType" value="{{climbType}}">
-        </label>
-    </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="place-image-input-label">Image</span>
-        <input id="place-image-input" type="file" name="imageFile" class="form-control" placeholder="Place image"
-            aria-label="Placeimage" aria-describedby="place-image-input-label">
+<div class="view-description">
+    <span class="view-title"><i class="bi bi-pencil-square"></i> Editar - </span>
+    <span id="place-name" class="view-introduction"> {{username}} </span>
+</div>
+<form action="/user/{{_id}}/edit" method="POST">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="user-name-input-label">Nombre</span>
+                    <input id="user-name-input" type="text" name="name" class="form-control" placeholder="User name"
+                        aria-label="username" aria-describedby="user-name-input-label" value="{{username}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="user-email-input-label">Email</span>
+                    <input id="user-email-input" name="email" type="text" class="form-control" placeholder="User email"
+                        aria-label="useremail" aria-describedby="user-email-input-label"
+                        value="{{email}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="user-biography-input-label">Biografía</span>
+                    <input id="user-biography-input" type="text" name="biography" class="form-control"
+                        placeholder="User biography" aria-label="userbiography"
+                        aria-describedby="user-biography-input-label" value="{{biography}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="user-level-input-label">Nivel</span>
+                    <input id="user-level-input" type="text" name="level" class="form-control"
+                        placeholder="USer level" aria-label="Userlevel" aria-describedby="user-level-input-label"
+                        value="{{level}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="user-climbtype-input-label">Tipo de Escalado</span>
+                    <input id="user-climbtype-input" type="text" name="climbType" class="form-control" placeholder="User climb type"
+                        aria-label="Userclimbtype" aria-describedby="user-climbtype-input-label" value="{{climbtype}}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="user-role-input-label">Rol</span>
+                    <input id="user-role-input" type="text" name="role" class="form-control" placeholder="User role"
+                        aria-label="Userrole" aria-describedby="user-role-input-label" value="{{role}}">
+                </div>
+            </div>
+            <div class="col-md-12 edit-btn-container">
+                <label for="edit-btn">
+                    <input class="btn btn-success mb-3" id="edit-btn" type="submit" value="Guardar Edición">
+                </label>
+            </div>
+        </div>
     </div>
 </form>

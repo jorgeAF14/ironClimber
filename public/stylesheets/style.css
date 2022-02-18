@@ -113,11 +113,12 @@ nav .btn-outline-success{
   display: contents;
 }
 
-.place-details .form-group{
+.form-details .form-group{
   background-color: #f2f2f2;
   border: 5px solid #fff;
   border-radius: 14px;
   overflow: hidden;
+  margin: 20px 0px;
 }
 
 .col-form-label{
@@ -125,14 +126,14 @@ nav .btn-outline-success{
   color: white;
 }
 
-.place-details-map{
+.form-details-map{
   border-radius: 50%;
   border: 4px solid black;
   display: inline-table;
   text-align: center;
 }
 
-.place-details-images{
+.form-details-images{
   width: 100%;
   height: 500px;
   margin: 0px;
@@ -143,8 +144,12 @@ nav .btn-outline-success{
   margin: 0px;
 }
 
-.place-details-section p{
+.form-details-section p{
   text-align: justify;
+}
+
+.user-image{
+  width: 215px;
 }
 
 .card-title{
@@ -156,6 +161,10 @@ nav .btn-outline-success{
 margin: 0px;
 margin-right: 0px;
  padding: 0px;
+}
+
+.edit-btn-container{
+  padding: 40px 0px;
 }
 
 .row{
@@ -179,14 +188,12 @@ h1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.place-details input{
+.form-details input{
   background-color: white !important;
 }
 
 footer{
-     padding: 40px 0px;
-     /* background-color: #368cd5; */
-     
+     padding: 40px 0px;     
 }
 
 footer i{

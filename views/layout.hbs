@@ -32,7 +32,7 @@
                      <a class="nav-link site-name" href="/">{{siteName}}</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="/"><i class="bi bi-person"></i>PROFILE</a>
+                     <a class="nav-link" href="/user/{{myUser._id}}/details"><i class="bi bi-person"></i>PROFILE</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="/places"><i class="bi bi-geo-alt"></i>PLACES</a>
@@ -48,6 +48,10 @@
                   <input class="form-control me-2" id="emailInput" type="email" name="email"
                      placeholder="Search user by email" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Search user</button>
+               </form>
+               <form action="/auth/logout" method="POST">
+                  {{!-- <a class="nav-link" href=><i class="bi bi-box-arrow-in-right"></i>LOG OUT</a> --}}
+                  <button class="btn btn-dark" type="submit"><i class="bi bi-box-arrow-in-left"></i>LOG OUT</button>
                </form>
             </div>
          </div>

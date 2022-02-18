@@ -2,6 +2,7 @@
     <span class="view-title"><i class="bi bi-geo-alt"></i> Lista de Lugares. </span>
     <span class="view-introduction"> Encuentra tus lugares para escalar</span>
 </div>
+{{#if ./isAdmin}}
 <div class="container btn-container">
     <div class="row justify-content-end">
         <div class="col-md-2">
@@ -13,6 +14,7 @@
         </div>
     </div>
 </div>
+{{/if}}
 <div>
     <figure id="placesListMap"></figure>
 </div>
@@ -25,4 +27,5 @@
 <script src="/js/map-styles.js"></script>
 <script src="/js/places-list-map.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=____API KEY_______&callback=initMap&libraries=places&v=weekly"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=____API KEY_______&callback=initMap&libraries=places&v=weekly"></script>

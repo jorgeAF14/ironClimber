@@ -9,7 +9,6 @@ const placeSchema = new Schema(
             },
             coordinates: [Number]
         },
-        // address: String,
         images: [String],
         level: {
             type: String,
@@ -27,8 +26,6 @@ const placeSchema = new Schema(
         timestamps: true,
     }
 );
-
-// placeSchema.index({ location: '2dsphere'})
 
 const Place = model("Place", placeSchema);
 

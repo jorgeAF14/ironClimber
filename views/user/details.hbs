@@ -1,19 +1,59 @@
-<h1>{{user.username}}</h1>
-<img src="{{user.image}}" class="img-thumbnail" alt="profile photo">
-<p>{{user.email}}</p>
-<p>{{user.level}}</p>
-<p>{{user.biographyl}}</p>
-<p>{{user.role}}</p>
-<form action="/auth/logout" method="POST">
-    <button>cerrar sesion</button>
-</form>
-{{#if ./isAdmin}}
-<form action="/user/{{user.id}}/delete" method="POST">
-    <button>eliminar</button>
-</form>
-{{/if}}
-{{#if ./isAdmin}}
-<form action="/user/{{user.id}}/edit" method="GET">
-    <button>editar</button>
-</form>
-{{/if}}
+<div class="view-description">
+    <span class="view-title"><i class="bi bi-person-bounding-box"></i> Perfil de usuario - </span>
+    <span id="place-name" class="view-introduction"> {{user.username}} </span>
+</div>
+<div class="container form-details">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="user-image" src="{{user.image}}" class="img-thumbnail" alt="profile photo">
+        </div>
+        <div class="col-md-8">
+            <form>
+                <div class="form-group row">
+                    <label for="user-email" class="col-sm-3 col-form-label">EMAIL</label>
+                    <div class="col-sm-9">
+                        <span type="text" class="form-control-plaintext" id="user-email">{{user.email}}</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="user-level" class="col-sm-3 col-form-label">NIVEL</label>
+                    <div class="col-sm-9">
+                        <span type="text" class="form-control-plaintext" id="user-level">{{user.level}}</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="user-biography" class="col-sm-3 col-form-label">BIOGRAFÍA</label>
+                    <div class="col-sm-9">
+                        <span type="text" class="form-control-plaintext" id="user-biography">{{user.biography}}</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="user-role" class="col-sm-3 col-form-label">ROL</label>
+                    <div class="col-sm-9">
+                        <span type="text" class="form-control-plaintext" id="user-role">{{user.role}}</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{#if ./isAdmin}}
+    <div class="btn-container">
+            <div class="row justify-content-end">
+                <div class="col-12 col-md-2 btn-col">
+                    <form action="/user/{{user.id}}/edit" method="GET">
+                        <label for="edit-btn">
+                            <button id="edit-btn" class="btn btn-success mb-3 btn-lg" type="submit">
+                                <i class="bi bi-pencil-square"></i> Editar</button>
+                        </label>
+                    </form>
+                    <form action="/user/{{user.id}}/delete" method="POST">
+                        <label for="delete-btn">
+                            <button id="delete-btn" class="btn btn-danger mb-3 btn-lg" type="submit">
+                                <i class="bi bi-trash"></i> Eliminar </button>
+                        </label>
+                    </form>
+                </div>
+            </div>
+    </div>
+    {{/if}}
+</div>

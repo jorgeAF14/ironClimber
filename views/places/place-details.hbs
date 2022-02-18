@@ -2,6 +2,7 @@
     <span class="view-title"><i class="bi bi-geo-alt"></i> Detalles del lugar - </span>
     <span id="place-name" class="view-introduction"> {{place.name}} </span>
 </div>
+{{#if ./isAdmin}}
 <div class="container-fluid btn-container">
     <div class="row justify-content-end">
         <div class="col-12 col-md-2 btn-col">
@@ -20,6 +21,7 @@
         </div>
     </div>
 </div>
+{{/if}}
 <section class="place-details-section">
     <div class="container-fluid">
         <div class="row">
@@ -56,7 +58,7 @@
         </div>
     </div>
 </section>
-<div class="container place-details">
+<div class="container form-details">
     <div class="row">
         <div class="col-md-6">
             <form>
@@ -119,24 +121,6 @@
         </div>
     </div>
 </div>
-{{!-- <div class="container">
-    <div class="row justify-content-begin">
-        <div class="col-md-4">
-            <form action="/places/{{place.id}}/edit" method="GET">
-                <label for="edit-btn">
-                    <input class="btn btn-warning mb-3" id="edit-btn" type="submit" value="Editar Lugar">
-                </label>
-            </form>
-        </div>
-        <div class="col-md-4">
-            <form action="/places/{{place.id}}/delete" method="POST">
-                <label for="delete-btn">
-                    <input class="btn btn-danger mb-3" id="delete-btn" type="submit" value="Borrar Lugar">
-                </label>
-            </form>
-        </div>            
-    </div> 
-</div> --}}
 
 <div class="container">
     <form action="/reviews/new-comment/{{place.id}}" method="POST">
@@ -170,4 +154,5 @@
 <script src="/js/map-styles.js"></script>
 <script src="/js/place-details-map.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=____API KEY_______&callback=initMap&libraries=places&v=weekly"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=____API KEY_______&callback=initMap&libraries=places&v=weekly"></script>

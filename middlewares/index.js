@@ -7,14 +7,14 @@ const isLoggedIn = (req, res, next) => {
 }
 
 const isExpert = (req, res, next) => {
-    if (!(req.session.currentUser.role == 'expert'||req.session.currentUser.role == 'admin')) {
+    if (!(req.session.currentUser.role === 'expert'||req.session.currentUser.role === 'admin')) {
         res.redirect('/auth/login')
         return
     }
     next();
 }
 const isAdminM= (req, res, next) => {
-    if (! req.session.currentUser.role == 'admin') {
+    if (! req.session.currentUser.role === 'admin') {
         res.redirect('/auth/login')
         return
     }

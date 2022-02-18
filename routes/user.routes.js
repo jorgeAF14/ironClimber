@@ -30,11 +30,11 @@ router.get('/:id/edit',(req, res, next) => {
         .catch(error => next(error))
    
 })
-router.post('/:id/edit', fileUploader.single('imageFile'), (req, res, next) => {
+router.post('/:id/edit', (req, res, next) => {
     const { id } = req.params
-    const { username, email, biography, level, climbType} = req.body
+    const { username, email, biography, level, climbType, role} = req.body
     User
-        .findByIdAndUpdate(id, { username, email, biography, level, climbType, image: req.file.path})
+        .findByIdAndUpdate(id, { username, email, biography, level, climbType, role})
         .then(user => {
             res.redirect(`/user/${user.id}/details`)
             console.log(user)
