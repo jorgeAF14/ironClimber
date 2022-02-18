@@ -2,7 +2,7 @@
     <span class="view-title"><i class="bi bi-pencil-square"></i> Editar - </span>
     <span id="place-name" class="view-introduction"> {{username}} </span>
 </div>
-<form action="/user/{{_id}}/edit" method="POST">
+<form action="/user/{{_id}}/edit" method="POST" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -44,6 +44,11 @@
                 <label for="edit-btn">
                     <input class="btn btn-success mb-3" id="edit-btn" type="submit" value="Guardar Edición">
                 </label>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="place-image-input-label">Image</span>
+                <input id="place-image-input" type="file" name="imageFile" class="form-control" placeholder="Place image"
+                    aria-label="Placeimage" aria-describedby="place-image-input-label">
             </div>
         </div>
     </div>
